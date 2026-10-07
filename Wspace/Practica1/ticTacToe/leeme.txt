@@ -1,0 +1,22 @@
+======================================
+=== Comandos usados en la practica ===
+======================================
+
+lf
+ls -l
+ls --tree
+cd 
+
+javac -d ./classes/ ./src/*main.java
+javadoc -author -version -private -linksource -d doc ./src/*.java
+java -classpath ./classes/ MainticTacToe.class
+sed -i '1i package es.unileon.prg1.ticTacToe;' *.java
+mkdir -p es/unileon/prg1/ticTacToe/
+javac -d ./classes/ ./src/es/unileon/prg1/ticTacToe/*.java
+javadoc -author -version -private -linksource -d doc -sourcepath ./src/ es.unileon.prg1.ticTacToe
+java -classpath ./classes/ es.unileon.prg1.ticTacToe.MainticTacToe
+mkdir -p /etc/images
+mv ./src/*.jpg ./etc/images/
+touch leeme.txt
+hx leeme.txt
+nano leeme.txt

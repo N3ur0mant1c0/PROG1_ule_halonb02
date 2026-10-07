@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<project name="Ejemplo" basedir="." default="todo">
+<property name="src" value="src"/>
+<property name="classes" value="classes"/>
+<property name="doc" value="doc"/>
+<property name="paquetes" value="es.unileon.prg1.bar.*"/>
+<property name="titulo" value="Un ejemplo completo"/>
+<target name="limpiar">
+<delete dir="${classes}"/>
+<delete dir="${doc}"/>
+</target>
+<target name="compilar" depends="limpiar">
+<mkdir dir="${classes}"/>
+<javac srcdir="${src}" destdir="${classes}"/>
+</target>
+<target name="documentar">
+<mkdir dir="${doc}"/>
+<javadoc sourcepath="${src}"
+packagenames="${paquetes}"
+destdir="${doc}"
+verbose="true" author="true"
+access="private" splitindex="true" version="true"
+windowtitle="${titulo}" doctitle="${titulo}"/>
+</target>
+<target name="probar" depends="compilar">
+<java classname="es.unileon.prg1.bar.PruebaMenuPrincipal">
+<classpath>
+<pathelement path="${classes}"/>
+</classpath>
+<arg value="de Moe"/>
+</java>
+</target>
+<target name="todo" depends="compilar, documentar, probar"/>
+</project>
